@@ -5,6 +5,8 @@ class Site::HomesController < ApplicationController
   end
 
   def openwith
+    puts request
+    puts request.env['omniauth.auth']
     puts params
   end
 
