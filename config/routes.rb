@@ -11,18 +11,6 @@ Rails.application.routes.draw do
       resources :help
     end
 
-    namespace :v1 do
-
-      resources :waves do
-        collection do
-          get 'updates_stream'
-          post 'insert'
-          post 'graph_points'
-        end
-      end
-
-    end
-
   end
   # API ~~~~~~~~~~~~~~~~~~~~~~~ (end)
 
