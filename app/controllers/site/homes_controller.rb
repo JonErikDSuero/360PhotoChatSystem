@@ -1,7 +1,10 @@
 class Site::HomesController < ApplicationController
 
-  def front_page
+  def frontpage
+  end
 
+  def openwith
+    puts params
   end
 
 end
