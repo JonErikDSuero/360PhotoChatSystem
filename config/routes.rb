@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     resources :homes, only: [] do
       collection do
         get 'frontpage'
-        post 'openwith'
+        get 'openwith'
       end
     end
 
