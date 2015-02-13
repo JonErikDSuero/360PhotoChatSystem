@@ -4,13 +4,16 @@ Rails.application.config.middleware.use OmniAuth::Builder do
 
   provider :google_oauth2,
     Rails.application.secrets.google_oauth2_client_id,
-    Rails.application.secrets.google_oauth2_secret
-  {
-    scope: [
-      "https://www.googleapis.com/auth/drive.file",
-      "https://www.googleapis.com/auth/drive.install"
-    ],
-  }
+    Rails.application.secrets.google_oauth2_secret,
+    {
+      scope: [
+        "email",
+        "profile",
+        "https://www.googleapis.com/auth/drive.file",
+        "https://www.googleapis.com/auth/drive.install"
+      ].join(", "),
+      prompt: "select_account"
+    }
 
 end
 
