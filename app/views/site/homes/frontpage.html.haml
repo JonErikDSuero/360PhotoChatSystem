@@ -12,8 +12,9 @@
   }
 
 = link_to "Sign in with Google", "/auth/google_oauth2"
+= @image_url
 
-#container
+#container{data: {image_url: @image_url}}
 
 = javascript_include_tag 'three.min', 'photo-sphere-viewer', 'photo_dummy'
 

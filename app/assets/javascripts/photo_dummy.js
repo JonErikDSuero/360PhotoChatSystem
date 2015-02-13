@@ -1,6 +1,8 @@
+console.log($("#container").data("imageUrl"));
+
 var div = document.getElementById('container');
 var PSV = new PhotoSphereViewer({
-  panorama: '/assets/sun.jpg',
+  panorama: $("#container").data("imageUrl"),
   container: div,
   time_anim: 3000,
   navbar: true,
