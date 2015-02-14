@@ -21,7 +21,12 @@ Rails.application.routes.draw do
     resources :homes, only: [] do
       collection do
         get 'frontpage'
-        get 'openwith'
+      end
+    end
+
+    resources :visuals, only: [] do
+      collection do
+        get 'googledrive'
       end
     end
 

@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
     render json: auth_hash
   end
 
+
   protected
 
   def auth_hash
