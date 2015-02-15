@@ -15,7 +15,7 @@
 /log/*.log
 /tmp
 
-/uploads
+/public/googledrive
 
 .env
 
