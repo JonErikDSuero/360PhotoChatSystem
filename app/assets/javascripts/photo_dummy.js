@@ -1,5 +1,3 @@
-console.log($("#container").data("imageUrl"));
-
 var div = document.getElementById('container');
 var PSV = new PhotoSphereViewer({
   panorama: $("#container").data("imageUrl"),

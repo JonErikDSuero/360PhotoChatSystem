@@ -32,22 +32,24 @@ class Api::Google
   end
 
 
-  def fetch_files(file_ids)
-    files = []
+  def download_files!(file_ids)
+    filenames = [];
+    dir_path = "app/assets/images/#{@account.user_id}/"
 
     file_ids.each do |file_id|
-      result = @client.execute(
-        api_method: @drive.files.get,
-        parameters:{ fileId: file_id }
-      )
-      files << result.data.downloadUrl
+      result = @client.execute( api_method: @drive.files.get, parameters:{ fileId: file_id })
+      filenames << "#{@account.user_id}/#{result.data.title}"
+
+      Thread.new do # create new thread to download the files to filesystem
+        FileUtils.mkdir_p(dir_path) unless File.directory?(dir_path)
+        file = @client.execute(uri: result.data.downloadUrl)
+        File.open(dir_path+result.data.title, 'wb') do |f|
+          f.write(file.body)
+        end
+      end
     end
 
-    files
-  end
-
-  def client
-    @client
+    filenames
   end
 
 end
