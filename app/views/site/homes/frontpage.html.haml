@@ -3,7 +3,10 @@
 #wrapper
   #container{data: {image_url: @image_url}}
 
-= javascript_include_tag 'three.min'
-= javascript_include_tag 'photo-sphere-viewer'
+= render "chat/room"
+
+= javascript_include_tag 'lib/three.min'
+= javascript_include_tag 'lib/photo-sphere-viewer'
 = javascript_include_tag 'photo_dummy'
+= javascript_include_tag 'chat'
 

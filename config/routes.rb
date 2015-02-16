@@ -11,6 +11,14 @@ Rails.application.routes.draw do
       resources :help
     end
 
+    namespace :v1 do
+      resources :chats, only: [] do
+        collection do
+          get 'chat'
+        end
+      end
+    end
+
   end
   # API ~~~~~~~~~~~~~~~~~~~~~~~ (end)
 

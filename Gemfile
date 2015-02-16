@@ -7,7 +7,6 @@ gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'haml-rails'
 gem 'mongoid', git: 'https://github.com/mongoid/mongoid.git'
-#gem 'puma'
 gem 'rails', '4.1.8'
 gem 'sass-rails', '~> 4.0.3'
 gem 'sdoc', '~> 0.4.0',          group: :doc
@@ -19,6 +18,10 @@ gem 'rest-client'
 gem 'google-api-client'
 gem 'omniauth' # standardized multi-provider authentication
 gem 'omniauth-google-oauth2'
+
+gem 'redis'
+gem 'puma'
+gem 'tubesock'
 
 gem 'dotenv-rails', groups: [:development, :test]
 
