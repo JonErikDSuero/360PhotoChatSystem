@@ -1,0 +1,22 @@
+%nav.navbar.navbar-inverse.navbar-fixed-top
+  .container-fluid
+    .navbar-header
+      .navbar-brand bubl
+    .collapse.navbar-collapse
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          %button.btn.btn-success.navbar-btn{:type => "button"}
+            %i.fa.fa-camera-retro
+            Take a Pic
+        %li.dropdown
+          %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            Account
+            %span.caret
+          %ul.dropdown-menu{:role => "menu"}
+            %li
+              %a{:href => "#"} Account
+            %li
+              %a{:href => "#"} Settings
+            %li.divider
+            %li
+              %a{:href => "#"} Sign Out
