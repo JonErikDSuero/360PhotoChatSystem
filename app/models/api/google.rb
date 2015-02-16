@@ -43,12 +43,10 @@ class Api::Google
       filename = dir_path+result.data.title
       filenames << filename
 
-      Thread.new do # create new thread to download the files to filesystem
-        FileUtils.mkdir_p(public_dir_path) unless File.directory?(public_dir_path)
-        file = @client.execute(uri: result.data.downloadUrl)
-        File.open(public_filename, 'wb') do |f|
-          f.write(file.body)
-        end
+      FileUtils.mkdir_p(public_dir_path) unless File.directory?(public_dir_path)
+      file = @client.execute(uri: result.data.downloadUrl)
+      File.open(public_filename, 'wb') do |f|
+        f.write(file.body)
       end
 
     end
