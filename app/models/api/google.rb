@@ -34,7 +34,7 @@ class Api::Google
 
   def download_files!(file_ids)
     filenames = [];
-    dir_path = "/googledrive/#{@account.user_id}/"
+    dir_path = "googledrive/#{@account.user_id}/"
 
     file_ids.each do |file_id|
       result = @client.execute( api_method: @drive.files.get, parameters:{ fileId: file_id })
@@ -43,9 +43,9 @@ class Api::Google
 
       puts "making picture"
       #Thread.new do # create new thread to download the files to filesystem
-      FileUtils.mkdir_p(dir_path) unless File.directory?(dir_path)
+      FileUtils.mkdir_p(dir_path) unless File.directory?("public/"+dir_path)
       file = @client.execute(uri: result.data.downloadUrl)
-      File.open("/public"+filename, 'wb') do |f|
+      File.open("public/"+filename, 'wb') do |f|
         f.write(file.body)
       end
       puts filename

@@ -1,6 +1,6 @@
 var div = document.getElementById('container');
 var PSV = new PhotoSphereViewer({
-  panorama: $("#container").data("imageUrl"),
+  panorama: window.location.origin+$("#container").data("imageUrl"),
   container: div,
   time_anim: 3000,
   navbar: true,
