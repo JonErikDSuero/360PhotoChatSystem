@@ -1,7 +1,7 @@
 class Site::VisualsController < ApplicationController
 
   def googledrive
-    @current_account = Account.find_by(type: "google", user_id: params["state"]["userId"]).first
+    @current_account = Account.find_by(type: "google", user_id: JSON.parse(params[:state])["userId"]).first
     @current_account.api = Api::Google.new(@current_account)
     filenames = @current_account.api.download_files!(params["state"]["ids"])
     @image_url = view_context.image_path(filenames[0]) # assume 1 file for now
