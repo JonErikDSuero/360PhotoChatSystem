@@ -5,9 +5,10 @@
     .collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right
         %li
-          %button.btn.btn-success.navbar-btn{:type => "button"}
-            %i.fa.fa-camera-retro
-            Take a Pic
+          %p.navbar-btn
+            %a#take-a-pic.btn.btn-success{href: "#"}
+              %i.fa.fa-camera-retro
+              Take a Pic
         %li.dropdown
           %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
             Account

@@ -9,3 +9,8 @@ var PSV = new PhotoSphereViewer({
   }
 });
 
+$('body').on('click', '#take-a-pic', function(){
+  this.href = PSV.getPictureUrl("image/png");
+  this.download = "bubl Picture.png"
+});
+

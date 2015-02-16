@@ -39,6 +39,12 @@
  **/
 
 var PhotoSphereViewer = function(args) {
+
+  this.getPictureUrl = function(mime_type) {
+    renderer.render(scene, camera);
+    return renderer.domElement.toDataURL(mime_type);
+  }
+
   /**
    * Detects whether canvas is supported
    * @return (boolean) true if canvas is supported, false otherwise
