@@ -43,7 +43,7 @@ class Api::Google
 
       puts "making picture"
       #Thread.new do # create new thread to download the files to filesystem
-      FileUtils.mkdir_p(dir_path) unless File.directory?("public/"+dir_path)
+      FileUtils.mkdir_p("public/"+dir_path) unless File.directory?("public/"+dir_path)
       file = @client.execute(uri: result.data.downloadUrl)
       File.open("public/"+filename, 'wb') do |f|
         f.write(file.body)
