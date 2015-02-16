@@ -344,8 +344,23 @@ var PhotoSphereViewer = function(args) {
     point.setZ(Math.cos(phi) * Math.cos(theta));
 
     camera.lookAt(point);
-    renderer.render(scene, camera);
+    renderer.render(scene, camera); // Erik
   }
+
+  this.getPhi = function() {
+    return phi;
+  }
+
+  this.getTheta = function() {
+    return theta;
+  }
+
+  this.move = function(phi_input, theta_input) {
+    phi = phi_input;
+    theta = theta_input;
+    render();
+  }
+
 
   /**
    * Automatically animates the panorama
@@ -567,8 +582,12 @@ var PhotoSphereViewer = function(args) {
    * @param level (integer) New zoom level
    * @return (void)
    **/
-  this.zoom = function(level) {
+  this.zoom = function(level) { // level = 0 -> 100
     zoom(level);
+  }
+
+  this.getZoomLevel = function() {
+    return zoom_lvl;
   }
 
   /**
