@@ -984,33 +984,16 @@ var PSVNavBarButton = function(psv, type, style) {
       var autorotate_equator_height = autorotate_sphere_width / 10;
 
       // Autorotate button
-      button = document.createElement('div');
+      button = document.createElement('i');
       button.style.cssFloat = 'left';
-      button.style.padding = '10px';
-      button.style.width = style.buttonsHeight + 'px';
-      button.style.height = style.buttonsHeight + 'px';
+      button.style.padding = '15px';
       button.style.backgroundColor = style.buttonsBackgroundColor;
       button.style.position = 'relative';
       button.style.cursor = 'pointer';
+      button.style.color = '#FFF';
+      button.className = button.className + " fa fa-globe";
 
       addEvent(button, 'click', function(){psv.toggleAutorotate();});
-
-      var autorotate_sphere = document.createElement('div');
-      autorotate_sphere.style.width = autorotate_sphere_width + 'px';
-      autorotate_sphere.style.height = autorotate_sphere_width + 'px';
-      autorotate_sphere.style.borderRadius = '50%';
-      autorotate_sphere.style.border = style.autorotateThickness + 'px solid ' + style.buttonsColor;
-      button.appendChild(autorotate_sphere);
-
-      var autorotate_equator = document.createElement('div');
-      autorotate_equator.style.width = autorotate_sphere_width + 'px';
-      autorotate_equator.style.height = autorotate_equator_height + 'px';
-      autorotate_equator.style.borderRadius = '50%';
-      autorotate_equator.style.border = style.autorotateThickness + 'px solid ' + style.buttonsColor;
-      autorotate_equator.style.position = 'absolute';
-      autorotate_equator.style.top = '50%';
-      autorotate_equator.style.marginTop = -(autorotate_equator_height / 2 + style.autorotateThickness) + 'px';
-      button.appendChild(autorotate_equator);
 
       // (In)active
       psv.addAction('autorotate', toggleActive);
@@ -1097,60 +1080,17 @@ var PSVNavBarButton = function(psv, type, style) {
       var fullscreen_vertical_int = style.buttonsHeight - style.fullscreenThickness * 2;
 
       // Fullscreen button
-      button = document.createElement('div');
+      button = document.createElement('i');
       button.style.cssFloat = 'right';
-      button.style.padding = '10px';
+      button.style.padding = '15px';
       button.style.width = fullscreen_width;
       button.style.height = style.buttonsHeight;
       button.style.backgroundColor = style.buttonsBackgroundColor;
       button.style.cursor = 'pointer';
+      button.style.color = '#FFF';
+      button.className = button.className + " fa fa-desktop";
 
       addEvent(button, 'click', function(){psv.toggleFullscreen();})
-
-      // Fullscreen icon left side
-      var fullscreen_left = document.createElement('div');
-      fullscreen_left.style.cssFloat = 'left';
-      fullscreen_left.style.width = style.fullscreenThickness + 'px';
-      fullscreen_left.style.height = fullscreen_vertical_space + 'px';
-      fullscreen_left.style.borderStyle = 'solid';
-      fullscreen_left.style.borderColor = style.buttonsColor + ' transparent';
-      fullscreen_left.style.borderWidth = fullscreen_vertical_border + 'px 0';
-      button.appendChild(fullscreen_left);
-
-      // Fullscreen icon top/bottom sides (first half)
-      var fullscreen_tb_1 = document.createElement('div');
-      fullscreen_tb_1.style.cssFloat = 'left';
-      fullscreen_tb_1.style.width = fullscreen_horizontal_border + 'px';
-      fullscreen_tb_1.style.height = fullscreen_vertical_int + 'px';
-      fullscreen_tb_1.style.borderStyle = 'solid';
-      fullscreen_tb_1.style.borderColor = style.buttonsColor + ' transparent';
-      fullscreen_tb_1.style.borderWidth = style.fullscreenThickness + 'px 0';
-      button.appendChild(fullscreen_tb_1);
-
-      // Fullscreen icon top/bottom sides (second half)
-      var fullscreen_tb_2 = document.createElement('div');
-      fullscreen_tb_2.style.cssFloat = 'left';
-      fullscreen_tb_2.style.marginLeft = fullscreen_horizontal_space + 'px';
-      fullscreen_tb_2.style.width = fullscreen_horizontal_border + 'px';
-      fullscreen_tb_2.style.height = fullscreen_vertical_int + 'px';
-      fullscreen_tb_2.style.borderStyle = 'solid';
-      fullscreen_tb_2.style.borderColor = style.buttonsColor + ' transparent';
-      fullscreen_tb_2.style.borderWidth = style.fullscreenThickness + 'px 0';
-      button.appendChild(fullscreen_tb_2);
-
-      // Fullscreen icon right side
-      var fullscreen_right = document.createElement('div');
-      fullscreen_right.style.cssFloat = 'left';
-      fullscreen_right.style.width = style.fullscreenThickness + 'px';
-      fullscreen_right.style.height = fullscreen_vertical_space + 'px';
-      fullscreen_right.style.borderStyle = 'solid';
-      fullscreen_right.style.borderColor = style.buttonsColor + ' transparent';
-      fullscreen_right.style.borderWidth = fullscreen_vertical_border + 'px 0';
-      button.appendChild(fullscreen_right);
-
-      var fullscreen_clearer = document.createElement('div');
-      fullscreen_clearer.style.clear = 'left';
-      button.appendChild(fullscreen_clearer);
 
       // (In)active
       psv.addAction('fullscreen-mode', toggleActive);

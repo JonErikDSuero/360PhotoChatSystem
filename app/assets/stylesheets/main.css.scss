@@ -5,12 +5,19 @@ html, body {
   overflow: hidden;
 }
 
-#container {
+#wrapper {
   position: absolute;
   left: 0;
   right: 200px;
   top: 50px;
   bottom: 0;
 }
+
+#container {
+  height: 100%;
+  width: 100%;
+}
+
+
 
 
