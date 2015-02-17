@@ -7,6 +7,7 @@ class Site::VisualsController < ApplicationController
   end
 
   def show
+    @can_go_back_to_feed = true
     @image = Visual::Image.find(params[:id])
   end
 
