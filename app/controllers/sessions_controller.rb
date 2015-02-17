@@ -6,6 +6,11 @@ class SessionsController < ApplicationController
     redirect_to '/visuals/feed'
   end
 
+  def signout
+    session[:curr_account_id] = nil
+    redirect_to '/homes/frontpage'
+  end
+
   protected
 
   def auth_hash

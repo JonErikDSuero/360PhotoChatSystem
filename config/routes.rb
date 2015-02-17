@@ -3,6 +3,12 @@ Rails.application.routes.draw do
   # intially send user '/auth/google_oauth2'
   get '/auth/:provider/callback', to: 'sessions#create'
 
+  resources :sessions do
+    collection do
+      get 'signout'
+    end
+  end
+
   # API ~~~~~~~~~~~~~~~~~~~~~~~ (start)
   scope module: :api do
 

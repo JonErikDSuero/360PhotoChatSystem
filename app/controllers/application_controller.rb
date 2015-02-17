@@ -4,15 +4,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def curr_account
+    return nil if session[:curr_account_id].blank?
     @curr_account ||= Account.find(session[:curr_account_id])
   end
 
   def require_login
-    if curr_account.blank?
-      redirect_to '/homes/frontpage'
-    else
-      @curr_account = self.curr_account
-    end
+    @curr_account = self.curr_account
+    redirect_to '/homes/frontpage' if @curr_account.blank?
   end
 
 end

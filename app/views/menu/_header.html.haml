@@ -1,4 +1,4 @@
-%nav.navbar.navbar-inverse.navbar-fixed-top{data: {curr_account_name: @curr_account.api_user_name}}
+%nav.navbar.navbar-inverse.navbar-fixed-top{data: {curr_account_name: @curr_account.try(:api_user_name)}}
   .container-fluid
     .navbar-header
       %a.navbar-brand{href: "/visuals/feed"} bubl
@@ -22,7 +22,7 @@
                 -#%a{href: "#"} Settings
               -#%li.divider
               %li
-                %a{href: "#"} Sign Out
+                %a{href: "/sessions/signout"} Sign Out
         - else
           %li
             %p.navbar-btn
