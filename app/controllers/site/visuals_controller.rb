@@ -4,7 +4,7 @@ class Site::VisualsController < ApplicationController
 
   def googledrive # refactor later
     state = JSON.parse(params[:state])
-    account = Account.find_by(type: Api::Google::TYPE, user_id: state["userId"])
+    account = Account.find_by(type: Api::Google::TYPE, api_user_id: state["userId"])
     account.api = Api::Google.new(account)
     session[:curr_account_id] = account.id.to_s
     @curr_account = self.curr_account
