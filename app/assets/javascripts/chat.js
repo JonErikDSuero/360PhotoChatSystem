@@ -1,16 +1,45 @@
 var socket = new WebSocket("ws://" + window.location.host + "/v1/chats/chat?roomname=hello"); //change hello later
 
+
 socket.onmessage = function(event) {
   if (event.data.length) {
-    return $("#output").append(event.data + "<br>");
+    addNewMessage(JSON.parse(event.data));
   }
 };
 
-$('body').on('submit', 'form.chat', function(event) {
-  var $input;
-  event.preventDefault();
-  $input = $(this).find("input");
-  socket.send($input.val());
-  return $input.val(null);
+
+$("#chatroom textarea").keyup(function (e) {
+  if (e.keyCode == 13) {
+    var text = $(this).val().trim();
+
+    socket.send(JSON.stringify({
+      phi: PSV.getPhi(),
+      theta: PSV.getTheta(),
+      zoomLevel: PSV.getZoomLevel(),
+      body: text,
+      sender: "sender" // Erik
+    }));
+    $(this).val("");
+  }
+});
+
+
+function addNewMessage(data) {
+  var block = document.createElement('blockquote');
+  var p = document.createElement('p');
+  var footer = document.createElement('footer');
+  $(p).html(data.body);
+  $(footer).html(data.sender);
+  $(block).append(p);
+  $(block).append(footer);
+  $(block).data( "phi", data.phi );
+  $(block).data( "theta", data.theta );
+  $(block).data( "zoomLevel", data.zoomLevel );
+  $("#messages").prepend(block);
+}
+
+$('body').on('click', '#messages blockquote', function(){
+  PSV.move($(this).data("phi"), $(this).data("theta"));
+  PSV.zoom($(this).data("zoomLevel"));
 });
 

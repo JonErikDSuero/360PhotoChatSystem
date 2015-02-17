@@ -14,14 +14,3 @@ $('body').on('click', '#take-a-pic', function(){
   this.download = "bubl Picture.png"
 });
 
-//
-// things to store:
-// PSV.getZoomLevel();
-// PSV.getPhi();
-// PSV.getTheta();
-
-
-// to move:
-// PSV.zoom(lvl);
-// PSV.move(phi, theta);
-
