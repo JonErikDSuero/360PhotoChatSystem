@@ -1,20 +1,7 @@
-:css
-  html, body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-  }
+#wrapper
+  #container{data: {image_url: @image_url}}
 
-  #container {
-    width: 100%;
-    height: 100%;
-  }
-
-%h4= "Google Drive"
-#container{data: {image_url: @image_url}}
-
-= javascript_include_tag 'three.min'
-= javascript_include_tag 'photo-sphere-viewer'
+= javascript_include_tag 'lib/three.min'
+= javascript_include_tag 'lib/photo-sphere-viewer'
 = javascript_include_tag 'photo_dummy'
 

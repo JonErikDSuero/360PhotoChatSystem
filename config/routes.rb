@@ -39,9 +39,10 @@ Rails.application.routes.draw do
 
     resources :visuals, only: [] do
       collection do
-        get 'googledrive'
         get 'feed'
         post 'upload'
+        post 'post_from_googledrive'
+        get 'googledrive'
       end
       member do
         get 'show'

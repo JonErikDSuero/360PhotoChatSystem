@@ -38,7 +38,7 @@ class Api::Google
 
   def download_files!(file_ids)
     filenames = [];
-    dir_path = "googledrive/#{@account.user_id}/"
+    dir_path = "googledrive/#{@account.api_user_id}/"
     public_dir_path = "public/"+dir_path
 
     file_ids.each do |file_id|

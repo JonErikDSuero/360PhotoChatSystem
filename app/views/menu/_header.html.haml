@@ -6,7 +6,17 @@
       %ul.nav.navbar-nav.navbar-right
         - if @curr_account.present?
           - if @image.present? || @image_url.present?
-            %li
+            - if @googledrive
+
+              %li.navbar-action
+                %p.navbar-btn
+                  = form_tag({controller: "site/visuals", action: "post_from_googledrive"}, multipart: true) do
+                    = hidden_field_tag 'image_url', @image_url
+                    = button_tag(type: "submit", id: "post-btn", class: "btn btn-warning") do
+                      %i.fa.fa-cloud-upload
+                      Post
+
+            %li.navbar-action
               %p.navbar-btn
                 %a#take-a-pic.btn.btn-success{href: "#"}
                   %i.fa.fa-camera-retro
@@ -16,11 +26,6 @@
               = @curr_account.api_user_name
               %span.caret
             %ul.dropdown-menu{:role => "menu"}
-              -#%li
-                -#%a{href: "#"} Account
-              -#%li
-                -#%a{href: "#"} Settings
-              -#%li.divider
               %li
                 %a{href: "/sessions/signout"} Sign Out
         - else
