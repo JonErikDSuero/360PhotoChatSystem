@@ -29,6 +29,7 @@ class Site::VisualsController < ApplicationController
       image: params[:file]
     )
     image.save!
+
     redirect_to "/visuals/feed"
   end
 
