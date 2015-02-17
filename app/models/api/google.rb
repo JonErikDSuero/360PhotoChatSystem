@@ -3,6 +3,7 @@ require 'google/api_client'
 
 class Api::Google
 
+  TYPE = "google"
 
   def initialize(account)
     @account = account
@@ -13,6 +14,9 @@ class Api::Google
     self
   end
 
+  def self.type?(auth_hash)
+    return (auth_hash[:provider] == "google_oauth2")
+  end
 
   def refresh_token_if_expired!
     if (@account.token_expires_at < Time.now - 1.minute)
