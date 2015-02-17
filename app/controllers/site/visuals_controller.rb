@@ -14,8 +14,7 @@ class Site::VisualsController < ApplicationController
   end
 
   def feed
-    # last 10
-    @images = Visual::Image.all.desc('_id').limit(10)
+    @images = Visual::Image.all.desc('_id').limit(10) # last 10
   end
 
   def show
