@@ -1,4 +1,4 @@
-var socket = new WebSocket("ws://" + window.location.host + "/v1/chats/chat?roomname=hello"); //change hello later
+var socket = new WebSocket("ws://" + window.location.host + "/v1/chats/chat?roomname="+$("#container").data("imageId")); //change hello later
 
 socket.onmessage = function(event) {
   if (event.data.length) {
@@ -11,13 +11,16 @@ $("#chatroom textarea").keyup(function (e) {
   if (e.keyCode == 13) {
     var text = $(this).val().trim();
 
-    socket.send(JSON.stringify({
-      phi: PSV.getPhi(),
-      theta: PSV.getTheta(),
-      zoomLevel: PSV.getZoomLevel(),
-      body: text,
-      sender: "sender" // Erik
-    }));
+    if (text != ""){
+      socket.send(JSON.stringify({
+        phi: PSV.getPhi(),
+        theta: PSV.getTheta(),
+        zoomLevel: PSV.getZoomLevel(),
+        body: text,
+        sender: $("nav").data("currAccountName")
+      }));
+    }
+
     $(this).val("");
   }
 });

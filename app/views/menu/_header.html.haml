@@ -1,15 +1,16 @@
-%nav.navbar.navbar-inverse.navbar-fixed-top
+%nav.navbar.navbar-inverse.navbar-fixed-top{data: {curr_account_name: @curr_account.api_user_name}}
   .container-fluid
     .navbar-header
       %a.navbar-brand{href: "/visuals/feed"} bubl
     .collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right
         - if @curr_account.present?
-          %li
-            %p.navbar-btn
-              %a#take-a-pic.btn.btn-success{href: "#"}
-                %i.fa.fa-camera-retro
-                Take a Pic
+          - if @image.present? || @image_url.present?
+            %li
+              %p.navbar-btn
+                %a#take-a-pic.btn.btn-success{href: "#"}
+                  %i.fa.fa-camera-retro
+                  Take a Pic
           %li.dropdown
             %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", href: "#", role: "button"}
               = @curr_account.api_user_name

@@ -3,7 +3,8 @@
   #posts
     - @images.each do |image|
       %blockquote.post
-        %img.src{src: image.image_url(:thumb)}
+        %a{href: "/visuals/#{image.id}/show"}
+          %img.src{src: image.image_url(:thumb)}
         %footer= "anonymous"
 
 = render "site/visuals/upload_station"

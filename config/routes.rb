@@ -36,6 +36,9 @@ Rails.application.routes.draw do
         get 'googledrive'
         get 'feed'
       end
+      member do
+        get 'show'
+      end
     end
 
   end

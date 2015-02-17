@@ -18,5 +18,9 @@ class Site::VisualsController < ApplicationController
     @images = Visual::Image.all.desc('_id').limit(10)
   end
 
+  def show
+    @image = Visual::Image.find(params[:id])
+  end
+
 end
 

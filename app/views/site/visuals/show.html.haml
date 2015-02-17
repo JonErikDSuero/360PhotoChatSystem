@@ -1,0 +1,10 @@
+#wrapper-with-right-sidebar
+  #container{data: {image_id: @image.id, image_url: @image.image_url}}
+
+= render "chat/room"
+
+= javascript_include_tag 'lib/three.min'
+= javascript_include_tag 'lib/photo-sphere-viewer'
+= javascript_include_tag 'photo_dummy'
+= javascript_include_tag 'chat'
+
