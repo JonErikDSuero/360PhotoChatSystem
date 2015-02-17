@@ -22,5 +22,16 @@ class Site::VisualsController < ApplicationController
     @image = Visual::Image.find(params[:id])
   end
 
+  def upload
+    image = Visual::Image.new(
+      account_api_user_name: params[:account_api_user_name],
+      account_id: params[:account_id],
+      type: params[:type],
+      image: params[:file]
+    )
+    image.save!
+    redirect_to "visuals/feed"
+  end
+
 end
 

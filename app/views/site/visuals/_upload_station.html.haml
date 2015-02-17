@@ -1,3 +1,13 @@
 #upload-station.right-sidebar
   %h4 Upload Station
-  %p (drag your images here)
+
+
+  = form_tag({controller: "site/visuals", action: "upload"}, multipart: true) do
+    = file_field_tag 'file'
+    = hidden_field_tag 'account_api_user_name', @curr_account.api_user_name
+    = hidden_field_tag 'account_id', @curr_account.id.to_s
+    = hidden_field_tag 'type', 'manual'
+    = button_tag(type: "submit", id: "publish", class: "btn btn-warning") do
+      %i.fa.fa-cloud-upload
+      Publish
+

@@ -5,6 +5,8 @@
       %blockquote.post
         %a{href: "/visuals/#{image.id}/show"}
           %img.src{src: image.image_url(:thumb)}
-        %footer= "anonymous"
+        %footer
+          = image.account_api_user_name
 
 = render "site/visuals/upload_station"
+
