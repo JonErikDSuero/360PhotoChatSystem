@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 
   def signout
     session[:curr_account_id] = nil
-    redirect_to '/homes/frontpage'
+    redirect_to '/'
   end
 
   protected

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get '/', to: 'site/homes#frontpage'
+
   # intially send user '/auth/google_oauth2'
   get '/auth/:provider/callback', to: 'sessions#create'
 

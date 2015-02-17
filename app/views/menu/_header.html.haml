@@ -1,7 +1,7 @@
 %nav.navbar.navbar-inverse.navbar-fixed-top{data: {curr_account_name: @curr_account.try(:api_user_name)}}
   .container-fluid
     .navbar-header
-      %a.navbar-brand{href: "/visuals/feed"} bubl
+      .navbar-brand bubl
     .collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right
         - if @curr_account.present?

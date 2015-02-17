@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
   def require_login
     @curr_account = self.curr_account
-    redirect_to '/homes/frontpage' if @curr_account.blank?
+    redirect_to '/' if @curr_account.blank?
   end
 
 end
