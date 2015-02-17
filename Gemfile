@@ -13,6 +13,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
+gem 'carrierwave-mongoid', require: 'carrierwave/mongoid'
+gem 'mini_magick' # ruby wrapper for ImageMagick
 
 gem 'rest-client'
 gem 'google-api-client'

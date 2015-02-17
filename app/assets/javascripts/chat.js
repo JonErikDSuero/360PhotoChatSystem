@@ -1,6 +1,5 @@
 var socket = new WebSocket("ws://" + window.location.host + "/v1/chats/chat?roomname=hello"); //change hello later
 
-
 socket.onmessage = function(event) {
   if (event.data.length) {
     addNewMessage(JSON.parse(event.data));
