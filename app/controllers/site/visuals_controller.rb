@@ -23,7 +23,6 @@ class Site::VisualsController < ApplicationController
   end
 
   def post_from_googledrive
-    binding.pry
     @image = Visual::Image.new(
       account_api_user_name: @curr_account.api_user_name,
       account_id: @curr_account.id.to_s,
