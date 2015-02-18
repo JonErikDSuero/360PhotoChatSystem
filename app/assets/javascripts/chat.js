@@ -45,7 +45,38 @@ function addNewMessage(data) {
 }
 
 $('body').on('click', '#messages blockquote', function(){
-  PSV.move($(this).data("phi"), $(this).data("theta"));
-  PSV.zoom($(this).data("zoomLevel"));
+  var p1 = [PSV.getPhi(), PSV.getTheta(), PSV.getZoomLevel()]
+  var p2 = [$(this).data("phi"), $(this).data("theta"), $(this).data("zoomLevel")];
+  anim(p1, p2);
 });
+
+var duration = 2000;
+
+function anim(p1, p2){
+  var start = null;
+  function step(timestamp) {
+    if (!start){
+      start = timestamp;
+    }
+    var progress = timestamp - start;
+    new_coord = calc_coord(p1, p2, progress);
+    PSV.move(new_coord[0], new_coord[1]);
+    PSV.zoom(new_coord[2]);
+    if (progress < duration) {
+      window.requestAnimationFrame(step);
+    }
+  }
+
+  window.requestAnimationFrame(step);
+}
+
+function calc_coord(p1, p2, progress){
+  var result = [];
+  var i;
+  for (i=0; i<=2; i++) {
+    result[i] = p1[i]+( (p2[i] - p1[i])*(progress/duration));
+  }
+
+  return result;
+}
 
