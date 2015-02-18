@@ -14,10 +14,6 @@ Rails.application.routes.draw do
   # API ~~~~~~~~~~~~~~~~~~~~~~~ (start)
   scope module: :api do
 
-    namespace :v0 do
-      resources :help
-    end
-
     namespace :v1 do
       resources :chats, only: [] do
         collection do
