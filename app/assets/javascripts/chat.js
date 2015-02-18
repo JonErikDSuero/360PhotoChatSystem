@@ -1,4 +1,8 @@
-var socket = new WebSocket("ws://" + window.location.host + "/v1/chats/chat?roomname="+$("#container").data("imageId")); //change hello later
+if (socket instanceof WebSocket) { // close previous socket
+  socket.close();
+}
+
+var socket = new WebSocket("ws://" + window.location.host + "/v1/chats/chat?roomname="+$("#container").data("imageId"));
 
 socket.onmessage = function(event) {
   if (event.data.length) {
@@ -45,6 +49,3 @@ $('body').on('click', '#messages blockquote', function(){
   PSV.zoom($(this).data("zoomLevel"));
 });
 
-$('body').on('click', 'a', function(){
-  socket.send("de@th_Me$$agE")
-});

@@ -13,7 +13,6 @@ class Api::V1::ChatsController < ApplicationController
       end
 
       tubesock.onmessage do |m| # new message from client
-        redis_thread.kill if m=="de@th_Me$$agE" # quite nasty; refactor later
         Redis.new.publish(params[:roomname], m)
       end
 
