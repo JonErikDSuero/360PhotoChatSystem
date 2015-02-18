@@ -3,7 +3,7 @@
 
 
   = form_tag({controller: "site/visuals", action: "upload"}, multipart: true) do
-    = file_field_tag 'file'
+    = file_field_tag 'file', accept: 'image/*'
     = hidden_field_tag 'account_api_user_name', @curr_account.api_user_name
     = hidden_field_tag 'account_id', @curr_account.id.to_s
     = hidden_field_tag 'type', 'manual'
