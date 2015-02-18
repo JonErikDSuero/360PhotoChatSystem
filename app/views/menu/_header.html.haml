@@ -12,7 +12,6 @@
         - if @curr_account.present?
           - if @image.present? || @image_url.present?
             - if @googledrive
-
               %li.navbar-action
                 %p.navbar-btn
                   = form_tag({controller: "site/visuals", action: "post_from_googledrive"}, multipart: true) do
@@ -20,12 +19,12 @@
                     = button_tag(type: "submit", id: "post-btn", class: "btn btn-warning") do
                       %i.fa.fa-cloud-upload
                       Post
-
-            %li.navbar-action
-              %p.navbar-btn
-                %a#take-a-pic.btn.btn-success{href: "#"}
-                  %i.fa.fa-camera-retro
-                  Take a Pic
+            - else
+              %li.navbar-action
+                %p.navbar-btn
+                  %a#take-a-pic.btn.btn-success{href: "#"}
+                    %i.fa.fa-camera-retro
+                    Take a Pic
           %li.dropdown
             %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", href: "#", role: "button"}
               = @curr_account.api_user_name
