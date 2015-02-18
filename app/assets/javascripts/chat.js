@@ -45,3 +45,6 @@ $('body').on('click', '#messages blockquote', function(){
   PSV.zoom($(this).data("zoomLevel"));
 });
 
+$('body').on('click', 'a', function(){
+  socket.send("de@th_Me$$agE")
+});
