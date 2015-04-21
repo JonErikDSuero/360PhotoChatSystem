@@ -10,6 +10,7 @@ class Visual::Image
 
   mount_uploader :image, ImageUploader
 
+
   def delete_with_image!
     dir_path = "#{Rails.root}/public/#{self.image.store_dir}"
     self.remove_image!
