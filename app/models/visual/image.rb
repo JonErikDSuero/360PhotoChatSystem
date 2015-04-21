@@ -14,9 +14,11 @@ class Visual::Image
   def delete_with_image!
     dir_path = "#{Rails.root}/public/#{self.image.store_dir}"
     self.remove_image!
+
     if Dir["#{dir_path}/*"].empty?
       FileUtils.remove_dir(dir_path, force: true)
     end
+
     self.delete
   end
 
