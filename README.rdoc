@@ -9,5 +9,3 @@
 * Take a screenshot using a button
 
 Note: The Photo Sphere Viewer is from https://github.com/JeremyHeleine/Photo-Sphere-Viewer
-
-<tt>rake doc:app</tt>.
